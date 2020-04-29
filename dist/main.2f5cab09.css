@@ -1,0 +1,2 @@
+#display{border:1px solid #333;padding:4px;height:400px;width:400px;overflow-y:auto;background:#eee;transition:1s ease;opacity:1}#displayContainer{background:#000;display:inline-block;margin:0;padding:0}#cameraFlash{opacity:0;color:red}.hidden{opacity:0!important;transition:1s ease}@keyframes flash{0%{opacity:1}to{opacity:0}}
+/*# sourceMappingURL=main.2f5cab09.css.map */

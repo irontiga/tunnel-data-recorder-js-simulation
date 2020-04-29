@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <h3>Display: </h3>
+        <button id="wakeDisplayButton">Wake display</button>
+        <br>
+        <div id="displayContainer">
+            <div id="display" class="hidden"></div>
+        </div>
+
+        <h3>Simulated sensor: </h3>
+        <div class="rangeDiv">
+            10cm &nbsp; <input type="range" min="0" max="100" value="0" class="slider" id="simulatedRangeInput"> &nbsp; 0cm
+        </div>
+
+        <h3>Camera: </h3>
+        <div id="cameraFlash">
+            <h3>Camera triggered. Flash!!</h3>
+        </div>
+
+        <h3>Reset stats</h3>
+        <button id="resetStatsButton">Reset</button>
+        
+        <!--  type="module" // Removed for bundling with parcel -->
+        <script src="js/app.js" onerror="alert('Please load this file from a server. CORS blocks the file:\/\/ protocol! You can see a demo at http:\/\/tunnel-data-recorder-js-simulation.irontiga.io/dist/')"></script>
+    </body>
+</html>

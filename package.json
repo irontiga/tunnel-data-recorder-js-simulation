@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  },
+  "name": "tunnel-data-recorder-js-simulation",
+  "version": "0.0.0",
+  "main": "public/index.html",
+  "repository": "https://github.com/irontiga/tunnel-data-recorder-js-simulation",
+  "author": "irontiga <irontiga@gmail.com>",
+  "license": "MIT"
+}
