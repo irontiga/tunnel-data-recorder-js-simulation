@@ -1,6 +1,6 @@
 # Tunnel data recorder js simulation
 
-You can see a demo live at [http://tunnel-data-recorder-js-simulation.irontiga.io/dist/](http://tunnel-data-recorder-js-simulation.irontiga.io/dist/)
+You can see a demo live at [http://irontiga.io/tunnel-data-recorder-js-simulation/dist/](http://irontiga.io/tunnel-data-recorder-js-simulation/dist/)
 
 ## Development
 
