@@ -1,20 +1,20 @@
-import { tracker, display, rangeSensor, camera } from '../../src/js/main.js'
+import { tracker, display, rangeSensor, camera, resetButton, calibrateButton, displayButton } from '../../src/js/main.js'
 
 const displayDiv = document.getElementById('display')
 const simulatedRangeInput = document.getElementById('simulatedRangeInput')
-const wakeButton = document.getElementById('wakeDisplayButton')
+const wakeButtonElement = document.getElementById('wakeDisplayButton')
 const flash = document.getElementById('cameraFlash')
-const resetStatsButton = document.getElementById('resetStatsButton')
+const resetStatsButtonElement = document.getElementById('resetStatsButton')
+const calibrateButtonElement = document.getElementById('calibrateButton')
 
 display.onChange = () => {
     displayDiv.innerHTML = display.screenValue
     display.isAwake ? displayDiv.classList.remove("hidden") : displayDiv.classList.add("hidden")
-    
 }
 
-resetStatsButton.onclick = () => {
-    tracker.reset()
-}
+resetStatsButtonElement.onclick = () => resetButton.press()
+wakeButtonElement.onclick = () => displayButton.press()
+calibrateButtonElement.onclick = () => calibrateButton.press()
 
 camera.onTrigger = () => {
     flash.animate([
@@ -34,6 +34,3 @@ simulatedRangeInput.oninput = e => {
     rangeSensor.setSimulatedData(rangeVal)
 }
 
-wakeButton.onclick = () => {
-    display.wake()
-}

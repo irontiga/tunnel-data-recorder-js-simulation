@@ -7,7 +7,7 @@ import Tracker from './Tracker.js'
 import getDisplayHTML from './getDisplayHTML.js'
 import { default as cs } from './convertRawRangeSensorData.js'
 
-const LOOP_DELAY = 200 // check every 200ms
+const LOOP_DELAY = 100 // check every 200ms
 
 const RANGE_SENSOR_BASELINE = 10 // cm
 let rangeSensorBaseline = RANGE_SENSOR_BASELINE
@@ -26,19 +26,21 @@ export const camera = new Camera(CAMERA_PIN)
 export const rangeSensor = new RangeSensor(RANGE_SENSOR_PIN)
 export const tracker = new Tracker()
 
-const displayButton = new Button(DISPLAY_BUTTON_PIN, () => {
+export const displayButton = new Button(DISPLAY_BUTTON_PIN, () => {
     display.wake()
 })
-const resetButton = new Button(RESET_BUTTON_PIN, () => {
+export const resetButton = new Button(RESET_BUTTON_PIN, () => {
     tracker.reset()
 })
-const calibrateButton = new Button(CALIBRATE_BUTTON_PIN, () => {
+export const calibrateButton = new Button(CALIBRATE_BUTTON_PIN, () => {
     rangeSensorBaseline = cs(rangeSensor.read()) * 0.98
+    updateDisplay()
 })
 
-const updateDisplay = () => {
-    display.write(getDisplayHTML(tracker.total, tracker.ranges))
+function updateDisplay () {
+    display.write(getDisplayHTML(tracker.total, tracker.ranges, rangeSensorBaseline))
 }
+
 updateDisplay()
 
 tracker.onReset = () => {
@@ -48,7 +50,7 @@ tracker.onReset = () => {
 let animalPresent = false
 function loop () {
     const range = cs(rangeSensor.read())
-    if (range < RANGE_SENSOR_BASELINE) {
+    if (range < rangeSensorBaseline) {
         if (animalPresent == false) {
             animalPresent = true
 
